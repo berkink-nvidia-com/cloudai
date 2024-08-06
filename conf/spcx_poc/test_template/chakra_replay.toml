@@ -1,0 +1,30 @@
+name = "ChakraReplay"
+
+[cmd_args]
+  [cmd_args.docker_image_url]
+  type = "str"
+  default = "gitlab-master.nvidia.com/dc_scale/comms-trace-replay-dockerfile"
+
+  [cmd_args.mpi]
+  type = "preset"
+  values = ["pmix"]
+  default = "pmix"
+
+  [cmd_args.trace_type]
+  type = "preset"
+  values = ["et"]
+  default = "et"
+
+  [cmd_args.trace_path]
+  type = "str"
+  default = ""
+
+  [cmd_args.backend]
+  type = "preset"
+  values = ["nccl"]
+  default = "nccl"
+
+  [cmd_args.device]
+  type = "preset"
+  values = ["cuda"]
+  default = "cuda"

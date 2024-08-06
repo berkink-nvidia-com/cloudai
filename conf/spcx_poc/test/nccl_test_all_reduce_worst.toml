@@ -1,0 +1,16 @@
+name = "nccl_test_all_reduce_worst"
+description = "all_reduce_worst_alloc_test"
+test_template_name = "NcclTest"
+extra_cmd_args = "--stepfactor 2"
+
+[cmd_args]
+"subtest_name" = "all_reduce_perf_mpi"
+minbytes = "1K"
+maxbytes = "16G"
+iters = "60"
+warmup_iters ="40"
+
+[extra_env_vars]
+"NCCL_NVLS_CHUNKSIZE" = "524288"
+"NCCL_MIN_NCHANNELS" = "32"
+"NCCL_IB_QPS_PER_CONNECTION" = "2"

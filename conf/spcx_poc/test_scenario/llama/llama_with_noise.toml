@@ -1,0 +1,16 @@
+name = "llama_all_reduce_noise_1qp"
+
+[Tests]
+  [Tests.1]
+    name = "llama"
+#    nodes = ["hgx-isr1-pre-[08-11]"]
+    [Tests.1.dependencies]
+      start_post_init = {}
+      end_post_comp = {}
+
+  [Tests.2]
+    name = "nccl_test_all_reduce"
+#    nodes = ["hgx-isr1-pre-[08-11]"]
+    [Tests.2.dependencies]
+      start_post_init = { name = "Tests.1", time = 500 }
+      end_post_comp = { name = "Tests.1", time = 1 }

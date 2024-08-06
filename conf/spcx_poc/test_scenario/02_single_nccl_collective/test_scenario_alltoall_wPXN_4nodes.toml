@@ -1,0 +1,12 @@
+name = "single_nccl_test"
+
+[Tests]
+  [Tests.1]
+    name = "nccl_test_alltoall_wPXN"
+    nodes = ["hgx-isr1-pre-[01,05,09,13]"]
+    [Tests.1.dependencies]
+      start_post_comp = {}
+      end_post_comp = {}
+
+
+

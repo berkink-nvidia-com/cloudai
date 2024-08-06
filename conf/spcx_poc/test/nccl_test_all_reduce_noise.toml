@@ -1,0 +1,17 @@
+name = "nccl_test_all_reduce_noise"
+description = "all_reduce_noise"
+test_template_name = "NcclTest"
+
+[cmd_args]
+subtest_name = "all_reduce_perf_mpi"
+minbytes = "16G"
+maxbytes = "16G"
+stepbytes = "0"
+check = "0"
+iters = "99999"
+warmup_iters ="20"
+
+[extra_env_vars]
+"NCCL_NVLS_CHUNKSIZE" = "524288"
+"NCCL_MIN_NCHANNELS" = "32"
+"NCCL_IB_QPS_PER_CONNECTION" = "2"

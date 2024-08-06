@@ -1,0 +1,6 @@
+name = "gpt"
+
+[Tests]
+  [Tests.1]
+    name = "gpt"
+    nodes = ["hgx-isr1-pre-[08-11]"]

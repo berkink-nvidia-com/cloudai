@@ -1,0 +1,27 @@
+name = "nccl_test_congested_worst_allocation_woPXN"
+
+[Tests]
+  [Tests.1]
+    name = "nccl_test_alltoall_noise"
+    nodes = ["hgx-isr1-pre-[04,08,12,16]"]
+    [Tests.1.dependencies]
+      end_post_comp = { name = "Tests.4", time = 0 }
+      
+  [Tests.2]
+    name = "nccl_test_alltoall_noise"
+    nodes = ["hgx-isr1-pre-[02,06,10,14]"]
+    [Tests.2.dependencies]
+      end_post_comp = { name = "Tests.4", time = 0 }
+
+  [Tests.3]
+    name = "nccl_test_alltoall_noise"
+    nodes = ["hgx-isr1-pre-[03,07,11,15]"]
+    [Tests.3.dependencies]    
+      end_post_comp = { name = "Tests.4", time = 0 }
+
+  [Tests.4]
+    name = "nccl_test_alltoall_woPXN"
+    nodes = ["hgx-isr1-pre-[01,05,09,13]"]
+    [Tests.4.dependencies]
+      start_post_init = { name = "Tests.1", time = 30 }
+

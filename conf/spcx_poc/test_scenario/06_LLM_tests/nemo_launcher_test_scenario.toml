@@ -1,0 +1,7 @@
+name = "nemo_launcher"
+
+[Tests.1]
+  name = "nemo_launcher"
+  nodes = ["hgx-isr1-pre-[04-06,08]"]
+#  nodes = ["hgx-isr1-pre-[01,05,09,13]"]
+  weight = 100

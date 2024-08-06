@@ -1,0 +1,13 @@
+name = "single_nccl_test"
+# NCCL_TESTS_SPLIT_MASK=0x7
+[Tests]
+  [Tests.1]
+    name = "nccl_test_all_gather"
+    nodes = ["hgx-isr1-pre-[01-16]"]
+#    nodes = ["hgx-isr1-[037-038]"]
+    [Tests.1.dependencies]
+      start_post_comp = {}
+      end_post_comp = {}
+
+
+

@@ -1,0 +1,28 @@
+name = "single_nccl_test"
+
+[Tests]
+  [Tests.1]
+    name = "nccl_test_alltoall_worst_failover"
+    nodes = ["hgx-isr1-pre-[01-16]"]
+    time_limit = "00:05:00"
+    [Tests.1.dependencies]
+      start_init_comp = {}
+      end_post_comp =  {}
+
+#  [Tests.2]
+#    name = "nccl_test_all_gather"
+#    nodes = ["hgx-isr1-pre-[01-16]"]
+#    [Tests.2.dependencies]
+#      end_post_comp = { name = "Tests.1", time = 30 }
+#
+#  [Tests.3]
+#    name = "nccl_test_reduce_scatter"
+#    nodes = ["hgx-isr1-pre-[01-16]"]
+#    [Tests.3.dependencies]    
+#      end_post_comp = { name = "Tests.2", time = 30 }
+#
+#  [Tests.4]
+#    name = "nccl_test_alltoall"
+#    nodes = ["hgx-isr1-pre-[01-16]"]
+#    [Tests.3.dependencies]
+#      end_post_comp = { name = "Tests.3",time = 30 }

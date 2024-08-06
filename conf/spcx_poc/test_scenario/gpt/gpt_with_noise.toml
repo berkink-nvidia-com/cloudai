@@ -1,0 +1,28 @@
+name = "gpt_noise"
+
+#[Tests]
+#  [Tests.1]
+#    name = "nccl_test_bisection"
+#    nodes = ["hgx-isr1-pre-[08-11]"]
+#    [Tests.1.dependencies]
+#      end_post_comp = { name = "Tests.2", time = 0 }
+#
+#  [Tests.2]
+#    name = "gpt"
+#    nodes = ["hgx-isr1-pre-[12-15]"]
+#    [Tests.2.dependencies]
+#      start_post_init = { name = "Tests.1", time = 30 }
+#
+
+[Tests]
+  [Tests.1]
+    name = "gpt"
+    nodes = ["hgx-isr1-pre-[12-15]"]
+
+
+  [Tests.2]
+    name = "nccl_test_bisection"
+    nodes = ["hgx-isr1-pre-[08-11]"]
+    [Tests.2.dependencies]
+      end_post_comp = { name = "Tests.1", time = 0 }
+      start_post_init = { name = "Tests.1", time = 300 }

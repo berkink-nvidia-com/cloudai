@@ -1,0 +1,15 @@
+name = "nccl_test_sendrecv"
+description = "sendrecv"
+test_template_name = "NcclTest"
+extra_cmd_args = "--stepfactor 2"
+
+[cmd_args]
+subtest_name = "sendrecv_perf_mpi"
+minbytes = "1K"
+maxbytes = "16G"
+# "iters" = "20"
+warmup_iters ="20"
+
+[extra_env_vars]
+#"NCCL_MIN_NCHANNELS" = "12" # only for low number of servers
+"NCCL_NCHANNELS_PER_NET_PEER" = "4"

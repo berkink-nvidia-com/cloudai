@@ -1,0 +1,16 @@
+name = "nccl_test_alltoall_woPXN"
+description = "alltoall"
+test_template_name = "NcclTest"
+extra_cmd_args = "--stepfactor 2"
+
+[cmd_args]
+subtest_name = "alltoall_perf_mpi"
+minbytes = "1k"
+maxbytes = "16G"
+# iters = "99999"
+warmup_iters ="20"
+
+[extra_env_vars]
+"NCCL_PXN_DISABLE" = "1" # (default is 0)
+"NCCL_P2P_PXN_LEVEL" = "0" # (default is 2)
+
